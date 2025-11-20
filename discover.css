@@ -1,0 +1,28 @@
+body {
+  background-color: #fff4f4;
+}
+
+.featured-track-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.song-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 8px 0 4px;
+}
+
+.artist-name {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+}
