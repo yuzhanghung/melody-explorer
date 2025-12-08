@@ -1,24 +1,57 @@
 body {
-  background-color: #fff4f4;
+  background-color: #F3F1EB;
+}
+
+.discover-title {
+  padding-left: 30px;
+}
+
+.discover-container {
+  margin-top: 100px;
 }
 
 .featured-track-container {
   display: flex;
   justify-content: center;
+
   gap: 100px;
+  margin: 20px;
+
+ 
 }
 
-.song-body {
+
+
+.album-cover {
+  width: 80%;
+  margin: 20px auto; 
+  margin-bottom: 0;
+}
+
+.play-btn {
+
+
+  border: none;
+  background-color: transparent;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.song-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 .song-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
-  margin: 8px 0 4px;
+  padding-top: 0;
+  text-align: center;
 }
 
 .artist-name {
@@ -26,3 +59,107 @@ body {
   color: #666;
   margin: 0;
 }
+
+
+.fav-btn {
+  border: none;
+  background-color: #F7F7F7;
+}
+
+.fav-btns {
+  border: none;
+  background-color: white;
+}
+
+
+.detail-btn {
+  padding-top: 15px;
+}
+
+.progress-bar-audio {
+  width: 90%;
+  margin: 8px auto 0;
+  display: block;
+  accent-color: black;
+}
+
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-container button {
+  border-radius: 50px;
+  padding: 5px;
+  margin: 10px;
+  background-color: #F4F2F7;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btns button:hover {
+  background-color: #E6E4EB; /* slightly darker gray */
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+.filter-btns button.active {
+  background-color: black;
+  color: #FFF8F0; /* soft cream white */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+.small-card-track {
+  width: 300px;
+  background-color: #F7F7F7;
+  
+  border: 1px solid black;
+}
+
+.small-card {
+  padding-left: 30px;
+}
+
+.sml-album-cover {
+  width: 40%;
+  margin-top: 40px;
+}
+
+.songs-container {
+  margin: 20px auto;
+  padding-left: 100px;
+
+}
+
+.sm-card-title {
+  font-weight: 600;
+}
+
+
+.small-card-info {
+  margin-top: 50px;
+ 
+}
+
+.sm-detail-btn {
+  margin-top: 6px;
+}
+
+.sm-detail-btn .material-symbols-outlined {
+  font-size: 28px; 
+}
+
+
+
+@media (max-width: 1000px) {
+  .featured-track-container {
+    display: none;
+  }
+}
+

@@ -1,0 +1,43 @@
+.card-container {
+  margin-top: 100px;
+  max-inline-size: 1000px;
+  margin-inline: auto;
+}
+
+.card {
+  border: none !important;
+  box-shadow: none; /* optional: remove Bootstrap shadow */
+}
+
+.song-detail-container {
+  text-align: center;
+}
+
+.artist-name {
+  margin-bottom: 0;
+}
+
+.badge {
+  background-color: gray;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+
+.audio {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.artist-pic {
+  width: 300px;
+  border-radius: 50%;
+}
+
+.artist-names {
+  text-align: center;
+}
+
+.artist-bio {
+  margin-top: 20px;
+}
