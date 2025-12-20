@@ -57,9 +57,6 @@ async function getPlaylistTracks(playlistId) {
 
   const data = await res.json();
 
-  console.log("Raw Deezer track[0]:", data.tracks.data[0]); // 👈 look in console
-
-
   return data.tracks.data.map(track => ({
     id: track.id,
     title: track.title,
@@ -84,7 +81,7 @@ function mergeTracks(deezerTracks, airtableRecords) {
       releaseYear: a.releaseYear,
       picture: a.picture?.[0]?.url || null,
 
-      // Deezer data (may be undefined if not found):
+      // Deezer data 
       deezerId: match?.id || null, 
       previewUrl: match?.previewUrl || null,
       artistName: match?.artistName || null,
@@ -151,35 +148,25 @@ function renderSongDetail(song) {
 
 
 async function main() {
-  try {
-    const [deezerTracks, airtableRecords] = await Promise.all([
-      getPlaylistTracks(PLAYLIST_ID),
-      getAllRecords(),
-    ]);
+  const [deezerTracks, airtableRecords] = await Promise.all([
+    getPlaylistTracks(PLAYLIST_ID),
+    getAllRecords(),
+  ]);
 
-    const merged = mergeTracks(deezerTracks, airtableRecords);
+  const merged = mergeTracks(deezerTracks, airtableRecords);
 
-    const idFromUrl = getQueryParam("id");
-    console.log("Track id from URL:", idFromUrl);
+  const idFromUrl = getQueryParam("id");
+  console.log("Track id from URL:", idFromUrl);
 
-    if (!idFromUrl) {
-      console.error("No id query parameter found.");
-      return;
-    }
 
-    // Deezer ids are numbers, URL params are strings → normalize
-    const song = merged.find(s => String(s.deezerId) === String(idFromUrl));
+  const song = merged.find(s => String(s.deezerId) === String(idFromUrl));
 
-    if (!song) {
-      console.error("No song found for id:", idFromUrl);
-      return;
-    }
-
-    renderSongDetail(song);
-
-  } catch (err) {
-    console.error(err);
+  if (!song) {
+    console.error("No song found for id:", idFromUrl);
+    return;
   }
+
+  renderSongDetail(song);
 }
 
 main();

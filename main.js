@@ -224,7 +224,7 @@ function mergeTracks(deezerTracks, airtableRecords) {
   });
 }
 
-let allTracks = []; // will hold merged tracks with mood
+let allTracks = []; 
 
 
 function setupMoodFilters() {
@@ -248,25 +248,19 @@ function setupMoodFilters() {
 
 
 async function main() {
-  try {
-    const [deezerTracks, airtableRecords] = await Promise.all([
-      getPlaylistTracks(PLAYLIST_ID),
-      getAllRecords(),
-    ]);
+  const [deezerTracks, airtableRecords] = await Promise.all([
+    getPlaylistTracks(PLAYLIST_ID),
+    getAllRecords(),
+  ]);
 
-    const merged = mergeTracks(deezerTracks, airtableRecords);
-    console.log("Merged tracks:", merged);
+  const merged = mergeTracks(deezerTracks, airtableRecords);
 
-    allTracks = merged; // save for filtering
+  allTracks = merged; // save for filtering
 
-    renderFeaturedTracks(merged); 
-    renderAllTracks(merged);      // all songs initially
+  renderFeaturedTracks(merged); 
+  renderAllTracks(merged);      // all songs initially
 
-    setupMoodFilters();           // wire up buttons
-
-  } catch (err) {
-    console.error(err);
-  }
+  setupMoodFilters();    
 }
 
 main();
